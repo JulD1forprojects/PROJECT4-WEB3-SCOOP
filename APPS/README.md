@@ -7,7 +7,7 @@ The web app enables end users perform all nesesary <b>CRUD</b> operations and HT
 
 ##
 
-- ### View ALL available Atfricles
+- ### View ALL available articles
 - ### View ALL Categories
 - ### Expand and Read articles
 - ### Select articles according to the Categories
