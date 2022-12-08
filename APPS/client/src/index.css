@@ -1,3 +1,9 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .header {
   min-height: 70px;
   max-height: max-content;
@@ -29,6 +35,10 @@
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+}
+
+.footer {
+  margin-top: auto !important;
 }
 
 .footerp {
