@@ -1,43 +1,30 @@
-import React, { useState, useEffect } from "react";
-import { Container } from "react-bootstrap";
+import React, { useState } from "react";
 import Header from "../components/Header";
-import { useParams } from "react-router-dom";
-import { useAppContext } from "../context/UseAppContext";
-import ArticleCard from "../components/ArticleCard";
+import { Container } from "react-bootstrap";
 import Footer from "../components/Footer";
+import { useAppContext } from "../context/UseAppContext";
+import CategoryCard from "../components/CategoryCard";
 
-const CategoryArticles = ({ user }) => {
-  let { category } = useParams(); // get category id from url
-  const [categoryarticles, setCategoryarticles] = useState([]);
-
-  const { articles } = useAppContext(); // get articles from state
-
-  useEffect(() => {
-    console.log(articles);
-    // get category articles
-    var newArray = articles.filter(function (el) {
-      console.log(el);
-      return el.category.category === category;
-    });
-
-    console.log(newArray);
-
-    setCategoryarticles(newArray);
-  }, [articles]);
+const Categories = ({ user }) => {
+  const { categories } = useAppContext(); // getting categories from app state
 
   // rendering ui
   return (
     <>
       <Header user={user} />
       <br />
-      <h2 className="text-center">{category} Articles</h2>
+      <h2 className="text-center">All Categories</h2>
       <br />
       <Container>
-        <div className="articlelist">
-          {/* rendering article card */}
-          {categoryarticles.map((v, i) => {
-            return <ArticleCard key={i} article={v} />;
-          })}
+        <div className="row">
+          {categories &&
+            categories.map((v, i) => {
+              return (
+                <div className="col-md-3">
+                  <CategoryCard key={i} category={v} />
+                </div>
+              );
+            })}
         </div>
       </Container>
       <br />
@@ -46,4 +33,4 @@ const CategoryArticles = ({ user }) => {
   );
 };
 
-export default CategoryArticles;
+export default Categories;
