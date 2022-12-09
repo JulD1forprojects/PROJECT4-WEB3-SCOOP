@@ -1,4 +1,10 @@
 import React from "react";
+const Profile = () => {
+  return <div>Profile</div>;
+};
+
+export default Profile;
+/*
 import Header from "../components/Header"; // header
 import Footer from "../components/Footer"; // footer
 
@@ -98,3 +104,4 @@ const Profile = () => {
 };
 
 export default Profile;
+*/
