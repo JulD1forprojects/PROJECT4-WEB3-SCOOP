@@ -10,7 +10,7 @@ const SignUp = () => {
   const [email, setEmail] = useState(""); // state for email
   const [password, setPassword] = useState(""); // state for password
 
-  // sign up function
+  //! sign up function
   const signupnow = async () => {
     // making function call
     const result = await createAccount(name, email, password);

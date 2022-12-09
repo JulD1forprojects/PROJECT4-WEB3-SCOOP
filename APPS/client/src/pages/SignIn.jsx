@@ -10,13 +10,14 @@ const SignIn = () => {
   const [email, setEmail] = useState(""); // state for email
   const [password, setPassword] = useState(""); // state for password
 
+  //! login function
   const loginnow = async () => {
     // calling login function
     const result = await logIn(email, password);
 
     console.log(result);
 
-    // if login success goto home page
+    // if login success go to home page
     if (result.success && result.success === true) {
       navigate("/");
     }
