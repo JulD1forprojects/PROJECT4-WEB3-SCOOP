@@ -138,6 +138,11 @@
   padding: 24px;
 }
 
+.card .card-title {
+  font-size: 24px;
+  font-weight: 300;
+}
+
 .footer {
   background-image: url("./images/footerbg.png");
   width: 100%;
