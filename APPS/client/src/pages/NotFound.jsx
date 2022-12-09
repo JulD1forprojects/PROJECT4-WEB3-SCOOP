@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const NotFound = () => {
+const NotFound = ({ loading }) => {
   // rendering ui
   if (loading) {
     return (
@@ -14,14 +14,12 @@ const NotFound = () => {
     );
   } else {
     return (
-      <div className="loadingscreen" style={{ flexDirection: "column" }}>
+      <div className="loadingscreen">
         <h2 className="mt-2" style={{ fontSize: "45px", color: "white" }}>
           Page Not Found
         </h2>
         <br />
-        <Link to="/" className="text-decoration-none text-white">
-          Goto Home
-        </Link>
+        <Link to="/">Goto Home</Link>
       </div>
     );
   }
