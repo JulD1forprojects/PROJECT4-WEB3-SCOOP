@@ -36,7 +36,7 @@ const Header = ({ user }) => {
             </Nav.Link>
           </Nav>
 
-          {/* if user is logged in then show myorders if not show login and signup link */}
+          {/* if user is logged in then show profile page link if not show login and signup link */}
           {user && user._id ? (
             <>
               <Nav.Link as={Link} to="/myorders">
