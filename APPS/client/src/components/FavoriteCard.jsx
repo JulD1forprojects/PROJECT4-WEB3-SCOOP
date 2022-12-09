@@ -6,7 +6,7 @@ const ArticleCard = ({ article }) => {
   const { removeFromFavorites } = useAppContext(); // addtocart method from context op app
   const navigate = useNavigate(); // navigate method for redirection between pages
 
-  // to add article into cart
+  // to remove article into favorites
   const remove = async (id) => {
     console.log(id);
     await removeFromFavorites(id);
