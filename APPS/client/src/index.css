@@ -27,6 +27,107 @@
   }
 }
 
+.navbar-brand {
+  color: white !important;
+  font-weight: bolder;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+.ml-auto {
+  margin-left: auto !important;
+}
+
+.mmmmain {
+  position: absolute;
+}
+.mmmcontainer {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+/* Bottom left text */
+.bottom-left {
+  text-align: left;
+  position: absolute;
+  bottom: 18px;
+  left: 16px;
+}
+
+.sliderimage {
+  height: 600px;
+}
+
+/*Cat Card */
+.card {
+  position: relative;
+}
+
+.card,
+.card-panel {
+  transition: box-shadow 0.25s;
+  margin: 0.5rem 0 1rem;
+  border-radius: 2px;
+  background-color: #fff;
+}
+
+.card .card-image {
+  position: relative;
+  height: 200px;
+}
+
+.card .card-imagehome {
+  position: relative;
+  height: 150px !important;
+}
+
+.condtag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  padding: 10px;
+  border: 2px solid #000;
+  background-color: #1e2639;
+  color: #fff;
+  font-weight: 700;
+}
+
+.card .card-image img {
+  height: 100%;
+  display: block;
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+}
+
+/* ! Show Cat Card img */
+.card .card-imagehome img {
+  height: 100%;
+  display: block;
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+}
+
+.card .card-image .card-title {
+  color: #000;
+  font-weight: 400;
+}
+
 .footer {
   background-image: url("./images/footerbg.png");
   width: 100%;
