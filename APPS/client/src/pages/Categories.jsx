@@ -3,8 +3,8 @@ import Header from "../components/Header";
 import { Container } from "react-bootstrap";
 import Footer from "../components/Footer";
 import { useAppContext } from "../context/UseAppContext";
-
 import CategoryCard from "../components/CategoryCard";
+
 const Categories = ({ user }) => {
   const { categories } = useAppContext(); // getting categories from app state
 
