@@ -11,7 +11,7 @@ const connectDatabase = require("./config/database"); // getting connecting to d
 dotenv.config({ path: "server/config/config.env" }); // getting key files
 
 app.use(express.json()); // importing express json to get api body
-app.use(cookieParser()); // imporing cookie parser to read cookie from requests
+app.use(cookieParser()); // importing cookie-parser to read cookie from requests
 app.use(
   cors({
     origin: "http://localhost:5173",

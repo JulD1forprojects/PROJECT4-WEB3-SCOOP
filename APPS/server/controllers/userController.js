@@ -17,16 +17,19 @@ exports.registerUser = async (req, res) => {
   } catch (e) {
     res.status(400).json({
       success: false,
-      message: "Error! Please Try Again Later",
+      message: "Error! User Already Exists",
+      //message: "Error! Please Try Again Later",
     });
   }
 };
+
+// ! Login a User
 
 exports.loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // Check if user has given pass and given
+    // Check user's input of email or password
 
     if (!email || !password) {
       return res
@@ -34,27 +37,28 @@ exports.loginUser = async (req, res) => {
         .send({ success: false, message: "Please Enter Email And Password" });
     }
 
-    // get user from database
+    // get user from database /checking if our user exists in DB
     const user = await User.findOne({ email }).select("+password");
 
-    // if there is no user return an error
+    // if there is no user return error
     if (!user) {
       return res
         .status(401)
-        .send({ success: false, message: "Invalid Email or Password" });
+        .send({ success: false, message: "Invalid User Details" });
+      //.send({ success: false, message: "Invalid Email or Password" });
     }
 
-    // check if given password and password in database is the same
+    // check if given password and password in database is same
     const isPasswordMatched = await user.comparePassword(password);
 
-    // if password is not same return an error
+    // if password is not same  - return error
     if (!isPasswordMatched) {
       return res
         .status(401)
         .send({ success: false, message: "Invalid Email or Password" });
     }
 
-    // retrurn token when all successful
+    // ! retrurn token when all success
     sendToken(user, 200, res);
   } catch (e) {
     res.status(400).json({
@@ -64,7 +68,7 @@ exports.loginUser = async (req, res) => {
   }
 };
 
-// ! Logout
+// ! User Logout
 
 exports.logout = async (req, res) => {
   try {
@@ -86,7 +90,7 @@ exports.logout = async (req, res) => {
   }
 };
 
-// ! Get User By Id
+//! Get User Details By Id
 
 exports.getUserDetails = async (req, res) => {
   try {
@@ -104,7 +108,7 @@ exports.getUserDetails = async (req, res) => {
   }
 };
 
-// ! Update Password
+//!  Update Password
 
 exports.updatePassword = async (req, res, next) => {
   let user = await User.findById(req.user.id).select("+password");
@@ -125,7 +129,7 @@ exports.updatePassword = async (req, res, next) => {
   sendToken(user, 200, res);
 };
 
-//! Update Profile
+// ! Update Profile
 
 exports.updateProfile = async (req, res, next) => {
   const newUserData = {
@@ -141,7 +145,7 @@ exports.updateProfile = async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    message: "Profile Update Successfully",
+    message: "Profile Updated Successfully",
     user: user,
   });
 };

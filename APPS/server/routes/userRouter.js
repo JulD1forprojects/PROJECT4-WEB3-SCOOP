@@ -1,7 +1,7 @@
 // importing express
 const express = require("express");
 
-// importing controllers
+//! importing controllers
 
 const {
   registerUser,
@@ -12,7 +12,7 @@ const {
   updateProfile,
 } = require("../controllers/userController");
 
-// getting midedleware to check if user is logged in
+//! getting midedleware to check if user is logged in
 const { isAuthenticatedUser } = require("../middlewares/isAuthenticated");
 
 // getting router

@@ -6,7 +6,7 @@ const User = require("../models/userModel");
 
 exports.isAuthenticatedUser = async (req, res, next) => {
   try {
-    // getting token from cookie
+    // ! getting token from cookie
     const { token } = req.cookies;
 
     // if no user, return error to get login
@@ -17,10 +17,10 @@ exports.isAuthenticatedUser = async (req, res, next) => {
       });
     }
 
-    // verify token
+    //! verify token
     const decodedData = jwt.verify(token, process.env.JWT_SECRET);
 
-    // return user profile
+    //! return user profile from the token
     req.user = await User.findById(decodedData.id);
 
     next();

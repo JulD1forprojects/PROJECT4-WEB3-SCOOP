@@ -1,9 +1,9 @@
-// Creating Token And Save It In Cookie
+// ! Creating Token And Save It In Cookie
 
 const sendToken = (user, status, res) => {
   const token = user.getJWTToken();
 
-  // options for cookie
+  // ! options for cookie
 
   const options = {
     expires: new Date(

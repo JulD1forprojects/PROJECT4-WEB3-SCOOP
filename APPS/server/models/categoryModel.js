@@ -1,7 +1,7 @@
 //importing mongoose for creating user model
 const mongoose = require("mongoose");
 
-// model reference
+//!  model reference
 const categorySchema = new mongoose.Schema({
   category: {
     type: String,
