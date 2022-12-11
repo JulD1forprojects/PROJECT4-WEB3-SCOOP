@@ -1,21 +1,13 @@
 import React from "react"; // react
-import { useAppContext } from "../context/UseAppContext"; // importing context to get addtocart method
-import { useNavigate, useLocation } from "react-router-dom"; // to get method for redirection between pages
+import { useAppContext } from "../context/UseAppContext"; // importing context to get addToFavorite method
+import { Link } from "react-router-dom"; // to get method for redirection between pages
 const ArticleCard = ({ article }) => {
-  const { addToFavorite } = useAppContext(); // addtocart method from context op app
-  const navigate = useNavigate(); // navigate method for redirection between pages
-  const location = useLocation();
+  const { addToFavorite } = useAppContext(); // addToFavorite method from context op app
 
-  // function to add article into cart
+  //! function to add article into favorites
   const add = async (id) => {
     console.log(id);
     await addToFavorite(id);
-  };
-
-  // redirect to article page function
-  const gotoarticle = (id) => {
-    // navigate to article page with article id
-    navigate(`/article/${id}`);
   };
 
   // rendering ui
@@ -26,8 +18,22 @@ const ArticleCard = ({ article }) => {
         <div className="card">
           <div className="card-content">
             {/* article description */}
+            <h6 className="text-purple">By {article.user.name}</h6>
             <h2>{article.title}</h2>
-            <p className="description">{article.description}</p>
+            <p
+              className="description"
+              dangerouslySetInnerHTML={{ __html: article.description }}
+            ></p>
+            <Link
+              to={`/article/${article._id}`}
+              className="text-decoration-none text-black"
+              style={{ fontWeight: "bold" }}
+            >
+              Read More...
+            </Link>
+
+            <br />
+            <br />
             <br />
             <button
               className="btn btn-myprimary"
