@@ -1,11 +1,11 @@
 import Container from "react-bootstrap/Container"; // container from bootstrap for ui
 import Nav from "react-bootstrap/Nav"; // for making nav inside the navbar
 import Navbar from "react-bootstrap/Navbar"; // navbar for header from bootstrap
-import logo1 from "../images/logo1.png"; // imp logo
-
+import logo1 from "../images/logo1.png"; // importing logo
 import { Link, useLocation } from "react-router-dom"; // getting link to redirect on link
+
 const Header = ({ user }) => {
-  const location = useLocation();
+  const location = useLocation(); // to get current page location
 
   // rendering ui
   return (
@@ -39,8 +39,10 @@ const Header = ({ user }) => {
           {/* if user is logged in then show profile page link if not show login and signup link */}
           {user && user._id ? (
             <>
-              <Nav.Link as={Link} to="/myorders">
+              <Nav.Link as={Link} to="/profile">
                 <i className="fa fa-user" style={{ fontSize: 22 }}></i>
+                &nbsp;&nbsp;
+                {user.name}
               </Nav.Link>
             </>
           ) : (
