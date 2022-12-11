@@ -17,11 +17,12 @@ const Categories = ({ user }) => {
       <br />
       <Container>
         <div className="row">
+          {/* rendering category cards */}
           {categories &&
             categories.map((v, i) => {
               return (
-                <div className="col-md-3">
-                  <CategoryCard key={i} category={v} />
+                <div className="col-md-3" key={i}>
+                  <CategoryCard category={v} />
                 </div>
               );
             })}
