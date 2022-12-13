@@ -1,5 +1,5 @@
 import React from "react";
-import Slider from "../components/Slider";
+import Banner from "../components/Banner";
 import Header from "../components/Header";
 import ArticleCard from "../components/ArticleCard";
 import CategoryCard from "../components/CategoryCard";
@@ -14,7 +14,7 @@ const Home = ({ user }) => {
     <>
       <Header user={user} />
       <div className="mmmmain">
-        <Slider />
+        <Banner />
         <br />
 
         <Container>
@@ -44,8 +44,8 @@ const Home = ({ user }) => {
                 {categories &&
                   categories.map((v, i) => {
                     return (
-                      <div className="col-md-6">
-                        <CategoryCard key={i} category={v} />
+                      <div className="col-md-6" key={i}>
+                        <CategoryCard category={v} />
                       </div>
                     );
                   })}
