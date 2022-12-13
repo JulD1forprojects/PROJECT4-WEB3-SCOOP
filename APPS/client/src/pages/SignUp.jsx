@@ -2,6 +2,7 @@ import React, { useState } from "react"; // react with state to hold email and p
 import { Link } from "react-router-dom"; // link to redirect to other page
 import { useAppContext } from "../context/UseAppContext"; // getting app context
 import { useNavigate } from "react-router-dom"; // navigate method to redirect after login
+
 const SignUp = () => {
   const { createAccount } = useAppContext(); // getting create account function from app context
   const navigate = useNavigate(); // navigate method to navigate to other page
@@ -20,7 +21,6 @@ const SignUp = () => {
       navigate("/");
     }
   };
-
   // rendering ui
   return (
     <>
@@ -53,7 +53,7 @@ const SignUp = () => {
               <button onClick={signupnow}>Create Account</button>
             </form>
             <br />
-            <p className="message" style={{ marginTop: "15rem" }}>
+            <p className="message">
               Already registered? <Link to="/signin">Sign In</Link>
             </p>
           </div>

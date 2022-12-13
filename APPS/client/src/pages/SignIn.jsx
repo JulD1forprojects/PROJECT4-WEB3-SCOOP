@@ -5,19 +5,19 @@ import { useNavigate } from "react-router-dom"; // for navigate mothod
 
 const SignIn = () => {
   const { logIn } = useAppContext(); // get login method from app context
-  const navigate = useNavigate(); // navigate mrthod to navigate to other page
+  const navigate = useNavigate(); // navigate method to navigate to other page
 
   const [email, setEmail] = useState(""); // state for email
   const [password, setPassword] = useState(""); // state for password
 
   //! login function
   const loginnow = async () => {
-    // calling login function
+    //! calling login function
     const result = await logIn(email, password);
 
     console.log(result);
 
-    // if login success go to home page
+    // if login is successful go to home page
     if (result.success && result.success === true) {
       navigate("/");
     }

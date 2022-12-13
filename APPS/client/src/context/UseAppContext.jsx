@@ -19,8 +19,8 @@ export function UseAppContextProvider({ children }) {
     setLoading(true);
 
     try {
-      // make api call to backend
-      const { data } = await axios.post("http://localhost:4000/api/v1/login", {
+      //! make api call to backend
+      const { data } = await axios.post("/api/v1/login", {
         email,
         password,
       });
@@ -47,15 +47,12 @@ export function UseAppContextProvider({ children }) {
     // loading true
     setLoading(true);
     try {
-      // make api call
-      const { data } = await axios.post(
-        "http://localhost:4000/api/v1/register",
-        {
-          name,
-          email,
-          password,
-        }
-      );
+      //! make api call
+      const { data } = await axios.post("/api/v1/register", {
+        name,
+        email,
+        password,
+      });
       console.log(data);
 
       // set user to user state
@@ -80,8 +77,8 @@ export function UseAppContextProvider({ children }) {
     // loading true
     setLoading(true);
     try {
-      // make api call
-      const { data } = await axios.get("http://localhost:4000/api/v1/logout");
+      //! make api call
+      const { data } = await axios.get("/api/v1/logout");
 
       // set user state to empty
       setUser({});
@@ -104,8 +101,8 @@ export function UseAppContextProvider({ children }) {
 
   async function getData() {
     try {
-      // getting articles from api call
-      const { data } = await axios.get(`http://localhost:4000/api/v1/articles`);
+      //! getting articles from api call
+      const { data } = await axios.get(`/api/v1/articles`);
       console.log(data);
 
       // set articles to articles state
@@ -120,10 +117,8 @@ export function UseAppContextProvider({ children }) {
   //! getting categories
   async function getCategories() {
     try {
-      // getting categories from api call
-      const { data } = await axios.get(
-        `http://localhost:4000/api/v1/categories`
-      );
+      //! getting categories from api call
+      const { data } = await axios.get(`/api/v1/categories`);
       console.log(data);
 
       // set categories to categories state
@@ -140,11 +135,11 @@ export function UseAppContextProvider({ children }) {
     // initializing empty array to store unique category id
     const uniqueIds = [];
 
-    // get all articles from api
-    const { data } = await axios.get(`http://localhost:4000/api/v1/articles`);
+    //! get all articles from api
+    const { data } = await axios.get(`/api/v1/articles`);
     console.log(data);
 
-    // filter only one product from each category
+    // filer only one article from each category
     const unique = data.articles.filter((element) => {
       if (element.category) {
         console.log(element.category._id);
@@ -168,9 +163,9 @@ export function UseAppContextProvider({ children }) {
   }
 
   //! adding article to favorites
-  async function addToFavorite(articleid, quantity) {
+  async function addToFavorite(articleid) {
     // find article from articles by id
-    let producttoadd = articles.find((article) => article._id === articleid);
+    let articletoadd = articles.find((article) => article._id === articleid);
     //check if the action id exists in the addedItems
     let existed_item = favorites.find((article) => articleid === article._id);
     if (existed_item) {
@@ -182,14 +177,14 @@ export function UseAppContextProvider({ children }) {
       setStatus("update");
 
       // set favorites items
-      setFavorites((prevItems) => [...prevItems, producttoadd]);
+      setFavorites((prevItems) => [...prevItems, articletoadd]);
 
       // show success message
       toast.success("Article Added To Favorites");
     }
   }
 
-  //! removing item from favorites
+  //! removing Aricle from favorites
   async function removeFromFavorites(id) {
     // filter items by removing the article by given id
     setFavorites((prevItems) => prevItems.filter((item) => item._id !== id));
@@ -203,6 +198,137 @@ export function UseAppContextProvider({ children }) {
     setFavorites([]);
   }
 
+  //! Updating User Profile
+  async function updateProfile(name, email) {
+    try {
+      //! make api call to backend
+      const { data } = await axios.put("/api/v1/me/update", {
+        name,
+        email,
+      });
+      console.log(data);
+
+      // set user to user state
+      setUser(data.user);
+      toast.success("Profile Updated Successfully");
+
+      // loading false
+      setLoading(false);
+
+      return data;
+    } catch (err) {
+      // Handle Error Here
+      console.error(err);
+      toast.error(err.response.data.message);
+      setLoading(false);
+      return err.response.data;
+    }
+  }
+
+  //! Updating User Password
+  async function updatePassword(oldPassword, newPassword, confirmPassword) {
+    try {
+      //! make api call to backend
+      const { data } = await axios.put("/api/v1/password/update", {
+        oldPassword,
+        newPassword,
+        confirmPassword,
+      });
+      console.log(data);
+
+      // set user to user state
+      setUser(data.user);
+      toast.success("Password Update Successfully");
+
+      // loading false
+      setLoading(false);
+
+      return data;
+    } catch (err) {
+      // Handle Error Here
+      console.error(err);
+      toast.error(err.response.data.message);
+      setLoading(false);
+      return err.response.data;
+    }
+  }
+
+  //! Adding / Publishing New Article
+  async function addArticle(title, category, description) {
+    try {
+      //! make api call to backend
+      const { data } = await axios.post("/api/v1/createarticle", {
+        title,
+        category,
+        description,
+      });
+      console.log(data);
+
+      toast.success("Article Published Successfully");
+
+      // loading false
+      setLoading(false);
+
+      return data;
+    } catch (err) {
+      // Handle Error Here
+      console.error(err);
+      toast.error(err.response.data.message);
+      setLoading(false);
+      return err.response.data;
+    }
+  }
+
+  //! Editing Article
+  async function editArticle(id, title, category, description) {
+    try {
+      //! make api call to backend
+      const { data } = await axios.put(`/api/v1/updatearticle/${id}`, {
+        title,
+        category,
+        description,
+      });
+      console.log(data);
+
+      setArticles(data.articles);
+
+      toast.success("Article Updated Successfully");
+
+      // loading false
+      setLoading(false);
+
+      return data;
+    } catch (err) {
+      // Handle Error Here
+      console.error(err);
+      toast.error(err.response.data.message);
+      setLoading(false);
+      return err.response.data;
+    }
+  }
+
+  //! Deleting Article
+  async function removeArticle(id) {
+    try {
+      //! make api call to backend
+      const { data } = await axios.delete(`/api/v1/deletearticle/${id}`);
+      console.log(data);
+
+      toast.success("Article Deleted Successfully");
+
+      // loading false
+      setLoading(false);
+
+      return data;
+    } catch (err) {
+      // Handle Error Here
+      console.error(err);
+      toast.error(err.response.data.message);
+      setLoading(false);
+      return err.response.data;
+    }
+  }
+
   useEffect(() => {
     //loading true
     setLoading(true);
@@ -211,31 +337,41 @@ export function UseAppContextProvider({ children }) {
       setLoading(true);
 
       try {
-        // verify token, check if user is logged in
+        //! verify token, check if user is logged in
 
-        const { data } = await axios.get("http://localhost:4000/api/v1/me");
+        const { data } = await axios.get("/api/v1/me");
 
         // set user to state
         setUser(data.user);
+        await getData(); // get articles
+        await getCategories(); // get categories
+        await getFeaturedArticles(); // get featured articles
+
+        const favoritesData = JSON.parse(localStorage.getItem("favorites")); // get favorites items
+
+        if (favoritesData) {
+          console.log("items present");
+          console.log(favoritesData);
+          setStatus("update"); // update app state
+          setFavorites(favoritesData); // set favorites items in favorites state
+        }
 
         // loading false
         setLoading(false);
       } catch (err) {
         setLoading(false);
-      }
+        await getData(); // get articles
+        await getCategories(); // get categories
+        await getFeaturedArticles(); // get featured articles
 
-      await getData(); // get articles
-      await getCategories(); // get categories
-      await getFeaturedArticles(); // get featured articles
+        const favoritesData = JSON.parse(localStorage.getItem("favorites")); // get favorites items
 
-      const favoritesData = JSON.parse(localStorage.getItem("favorites")); // get favorites items
-
-      if (favoritesData) {
-        console.log("items present");
-        console.log(favoritesData);
-        setStatus("update"); // update app state
-        setFavorites(favoritesData); // set favorites items in favorites state
-        setLoading(false); // loading false
+        if (favoritesData) {
+          console.log("items present");
+          console.log(favoritesData);
+          setStatus("update"); // update app state
+          setFavorites(favoritesData); // set favorites items in favorites state
+        }
       }
     };
 
@@ -246,13 +382,13 @@ export function UseAppContextProvider({ children }) {
 
   useEffect(() => {
     if (status === "update") {
-      // if favorites get updated then set item to localstorage
+      // if favorites get update then set item in localstorage
       console.log(favorites);
       localStorage.setItem("favorites", JSON.stringify(favorites));
     }
   }, [favorites, status]);
 
-  //! return all functions as a component with all props
+  //! returning all functions as a component with all props
   return (
     <AppContext.Provider
       value={{
@@ -268,6 +404,11 @@ export function UseAppContextProvider({ children }) {
         cleanFavorites,
         categories,
         featuredarticles,
+        updatePassword,
+        updateProfile,
+        addArticle,
+        editArticle,
+        removeArticle,
       }}
     >
       {children}
