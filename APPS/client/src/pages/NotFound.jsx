@@ -14,7 +14,7 @@ const NotFound = ({ loading }) => {
     );
   } else {
     return (
-      <div className="loadingscreen">
+      <div className="loadingscreen" style={{ flexDirection: "column" }}>
         <h2 className="mt-2" style={{ fontSize: "45px", color: "white" }}>
           Page Not Found
         </h2>
