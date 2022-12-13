@@ -20,7 +20,7 @@ const Article = ({ user }) => {
   const getData = async (id) => {
     try {
       console.log(id);
-      // get article from backend api call
+      //! get article from backend api call
       const { data } = await axios.get(`/api/v1/getarticle/${id}`);
       console.log(data);
       if (data.status === true) {
@@ -29,7 +29,7 @@ const Article = ({ user }) => {
         let arr = [];
         setLoading(false); // loading false
       } else {
-        // if article data not found goto articles
+        // if article data not found go to articles
         navigate("/articles");
       }
     } catch (e) {
@@ -39,7 +39,7 @@ const Article = ({ user }) => {
   };
 
   useEffect(() => {
-    //! runs when page first loads and when article id gets changed
+    // this function runs when page first loads and when article id gets changed
     getData(articleid);
   }, [articleid]);
 

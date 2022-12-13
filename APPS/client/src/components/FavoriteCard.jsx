@@ -1,10 +1,11 @@
 import React from "react"; // react
 import { useAppContext } from "../context/UseAppContext"; // importing context to get addToFavorite method
 import { Link } from "react-router-dom"; // to get method for redirection between pages
+
 const FavoriteArticleCard = ({ article }) => {
   const { removeFromFavorites } = useAppContext(); // addToFavorite method from context op app
 
-  //! function to add article into favorites
+  //! to remove article from favorites
   const remove = async (id) => {
     console.log(id);
     await removeFromFavorites(id);

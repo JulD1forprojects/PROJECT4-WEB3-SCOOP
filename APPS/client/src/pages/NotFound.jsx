@@ -19,7 +19,9 @@ const NotFound = ({ loading }) => {
           Page Not Found
         </h2>
         <br />
-        <Link to="/">Goto Home</Link>
+        <Link to="/" className="text-decoration-none text-white">
+          Goto Home
+        </Link>
       </div>
     );
   }

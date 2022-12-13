@@ -19,7 +19,7 @@ const Favorites = ({ user }) => {
       <br />
       <Container>
         <div className="row">
-          {/* reding produt card for all articles */}
+          {/* redering article card for all articles */}
 
           {favorites &&
             favorites.map((v, i) => {

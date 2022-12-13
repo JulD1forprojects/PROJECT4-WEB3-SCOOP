@@ -3,7 +3,6 @@ import { UseAppContextProvider } from "./context/UseAppContext"; // importing co
 import "./App.css";
 
 function App() {
-
   // wrapping the while app in context
   return (
     <UseAppContextProvider>

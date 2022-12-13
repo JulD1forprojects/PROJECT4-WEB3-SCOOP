@@ -1,9 +1,9 @@
 // importing mongooose for mogodb connection
 const mongoose = require("mongoose");
 
-// function for connecting mongodb
+// function for connecting cmongodb
 const connectDatabase = () => {
-  // mongoose connection method for connecting to mongodb
+  // mongoose connect method for connecting mongodb
   mongoose
     .connect(process.env.DB_URI, {
       useNewUrlParser: true,

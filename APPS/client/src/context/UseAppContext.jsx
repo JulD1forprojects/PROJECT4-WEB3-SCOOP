@@ -19,7 +19,7 @@ export function UseAppContextProvider({ children }) {
     setLoading(true);
 
     try {
-      //! make api call to backend
+      // make api call to backend
       const { data } = await axios.post("/api/v1/login", {
         email,
         password,
@@ -47,7 +47,7 @@ export function UseAppContextProvider({ children }) {
     // loading true
     setLoading(true);
     try {
-      //! make api call
+      // make api call
       const { data } = await axios.post("/api/v1/register", {
         name,
         email,
@@ -77,7 +77,7 @@ export function UseAppContextProvider({ children }) {
     // loading true
     setLoading(true);
     try {
-      //! make api call
+      // make api call
       const { data } = await axios.get("/api/v1/logout");
 
       // set user state to empty
@@ -101,7 +101,7 @@ export function UseAppContextProvider({ children }) {
 
   async function getData() {
     try {
-      //! getting articles from api call
+      // getting articles from api call
       const { data } = await axios.get(`/api/v1/articles`);
       console.log(data);
 
@@ -117,7 +117,7 @@ export function UseAppContextProvider({ children }) {
   //! getting categories
   async function getCategories() {
     try {
-      //! getting categories from api call
+      // getting categories from api call
       const { data } = await axios.get(`/api/v1/categories`);
       console.log(data);
 
@@ -135,7 +135,7 @@ export function UseAppContextProvider({ children }) {
     // initializing empty array to store unique category id
     const uniqueIds = [];
 
-    //! get all articles from api
+    // get all articles from api
     const { data } = await axios.get(`/api/v1/articles`);
     console.log(data);
 
@@ -201,7 +201,7 @@ export function UseAppContextProvider({ children }) {
   //! Updating User Profile
   async function updateProfile(name, email) {
     try {
-      //! make api call to backend
+      // make api call to backend
       const { data } = await axios.put("/api/v1/me/update", {
         name,
         email,
@@ -228,7 +228,7 @@ export function UseAppContextProvider({ children }) {
   //! Updating User Password
   async function updatePassword(oldPassword, newPassword, confirmPassword) {
     try {
-      //! make api call to backend
+      // make api call to backend
       const { data } = await axios.put("/api/v1/password/update", {
         oldPassword,
         newPassword,
@@ -256,7 +256,7 @@ export function UseAppContextProvider({ children }) {
   //! Adding / Publishing New Article
   async function addArticle(title, category, description) {
     try {
-      //! make api call to backend
+      // make api call to backend
       const { data } = await axios.post("/api/v1/createarticle", {
         title,
         category,
@@ -282,7 +282,7 @@ export function UseAppContextProvider({ children }) {
   //! Editing Article
   async function editArticle(id, title, category, description) {
     try {
-      //! make api call to backend
+      // make api call to backend
       const { data } = await axios.put(`/api/v1/updatearticle/${id}`, {
         title,
         category,
@@ -310,7 +310,7 @@ export function UseAppContextProvider({ children }) {
   //! Deleting Article
   async function removeArticle(id) {
     try {
-      //! make api call to backend
+      // make api call to backend
       const { data } = await axios.delete(`/api/v1/deletearticle/${id}`);
       console.log(data);
 
@@ -337,7 +337,7 @@ export function UseAppContextProvider({ children }) {
       setLoading(true);
 
       try {
-        //! verify token, check if user is logged in
+        // verify token, check if user is logged in
 
         const { data } = await axios.get("/api/v1/me");
 

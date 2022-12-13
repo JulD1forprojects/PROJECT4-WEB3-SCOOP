@@ -6,7 +6,7 @@ const CategoryCard = ({ category }) => {
   const navigate = useNavigate(); // navigate method for navigation to other screen
   const location = useLocation(); // to get current page location
 
-  // function to navigate to Category page
+  //! function to navigate to Category page
   const gotocategory = async (category) => {
     // navigate ro category article page with category id
     navigate(`/categoryarticles/${category}`);

@@ -1,7 +1,7 @@
 //importing mongoose for creating user model
 const mongoose = require("mongoose");
 
-//!  model reference
+//! model reference
 const categorySchema = new mongoose.Schema({
   category: {
     type: String,
@@ -13,7 +13,7 @@ const categorySchema = new mongoose.Schema({
   },
 });
 
-// add model schema to mongodb
+// adding model schema to mongodb
 const Category = new mongoose.model("Category", categorySchema);
 
 module.exports = Category;

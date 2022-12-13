@@ -7,11 +7,11 @@ const cors = require("cors");
 
 const connectDatabase = require("./config/database"); // getting connecting to database function
 
-// Config
+//! Config
 dotenv.config({ path: "server/config/config.env" }); // getting key files
 
 app.use(express.json()); // importing express json to get api body
-app.use(cookieParser()); // importing cookie-parser to read cookie from requests
+app.use(cookieParser()); // imporing cookie parser to read cookie from requests
 app.use(
   cors({
     origin: "http://localhost:5173",
@@ -27,7 +27,7 @@ const user = require("./routes/userRouter");
 const article = require("./routes/articleRouter");
 const category = require("./routes/categoryRouter");
 
-// setting the apis by routes
+//! setting the apis by routes
 app.use("/api/v1", user);
 app.use("/api/v1", article);
 app.use("/api/v1", category);

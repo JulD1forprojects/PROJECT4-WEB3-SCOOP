@@ -4,7 +4,6 @@ import ArticleCard from "../components/ArticleCard"; // article card
 import { Container } from "react-bootstrap"; // conteiner for ui
 import Footer from "../components/Footer"; // footer
 import { useAppContext } from "../context/UseAppContext"; // app contexxt for getting articles
-
 const Articles = ({ user }) => {
   const { articles } = useAppContext(); // getting articles
 
@@ -17,7 +16,7 @@ const Articles = ({ user }) => {
       <br />
       <Container>
         <div className="row">
-          {/* rendering  article card for all articles */}
+          {/* redering article card for all articles */}
 
           {articles.map((v, i) => {
             return <ArticleCard key={i} article={v} />;

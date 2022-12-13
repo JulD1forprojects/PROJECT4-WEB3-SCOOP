@@ -2,7 +2,7 @@
 
 const mongoose = require("mongoose");
 
-// ! model reference
+//! model reference
 
 const articleSchema = new mongoose.Schema({
   title: {

@@ -47,7 +47,7 @@ exports.updateCategory = async (req, res) => {
   }
 };
 
-// ! Get All category
+//! Get All categories
 
 exports.getAllCategories = async (req, res) => {
   try {
@@ -66,7 +66,7 @@ exports.getAllCategories = async (req, res) => {
   }
 };
 
-// ! Get category By Id
+//! Get category By Id
 
 exports.getCategory = async (req, res) => {
   try {
