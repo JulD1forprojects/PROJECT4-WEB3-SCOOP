@@ -2,7 +2,6 @@
 const express = require("express");
 
 //! importing controllers
-
 const {
   registerUser,
   loginUser,
@@ -12,15 +11,13 @@ const {
   updateProfile,
 } = require("../controllers/userController");
 
-//! getting midedleware to check if user is logged in
+//! getting middleware to check if user is logged in
 const { isAuthenticatedUser } = require("../middlewares/isAuthenticated");
 
 // getting router
-
 const router = express.Router();
 
 // setting routes
-
 router.route("/register").post(registerUser);
 router.route("/login").post(loginUser);
 router.route("/logout").get(logout);

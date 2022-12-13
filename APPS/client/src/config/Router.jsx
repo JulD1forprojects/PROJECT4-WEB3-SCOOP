@@ -12,6 +12,7 @@ import Categories from "../pages/Categories";
 import CategoryArticles from "../pages/CategoryArticles";
 import MyArticles from "../pages/MyArticles";
 import Favorites from "../pages/Favorites";
+import Profile from "../pages/Profile";
 
 function AppRouter() {
   const { user, loading } = useAppContext(); // getting user and loading state from app state
@@ -28,6 +29,8 @@ function AppRouter() {
       </>
     );
   } else if (!user || !user._id) {
+    //! if user is NOT logged in, provide all pages
+    //! except profile and my articles page
     return (
       <BrowserRouter>
         <Routes>
@@ -49,7 +52,8 @@ function AppRouter() {
       </BrowserRouter>
     );
   } else if (user._id) {
-    // if user provide all pages except signin and signup page
+    //! if user is logged in, provide all pages except
+    //! signin and signup page
     return (
       <BrowserRouter>
         <Routes>
@@ -76,6 +80,7 @@ function AppRouter() {
             path="/myarticles"
             element={<MyArticles user={user} />}
           />
+          <Route exact path="/profile" element={<Profile user={user} />} />
 
           <Route path="*" element={<NotFound loading={loading} />} />
         </Routes>
