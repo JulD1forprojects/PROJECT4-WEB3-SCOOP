@@ -19,6 +19,16 @@ The web app enables end users perform all nesesary <b>CRUD</b> operations and HT
 - ### Update profile
 - ### Update password
 
+## 🧩 Web3 Scoop Wireframing
+
+### FRONTEND
+
+![Imgur](https://i.imgur.com/PmQNeEq.png)
+
+### BACKEND
+
+![Imgur](https://i.imgur.com/r7g9lFg.png)
+
 ## 💻 Technologies & Libraries Used
 
 | <b>Backend</b>   | <b>Frontend</b>  |
@@ -32,3 +42,5 @@ The web app enables end users perform all nesesary <b>CRUD</b> operations and HT
 | cookie-parser    | react            |
 | jsonwebtoken     | react-dom        |
 | dev.dep: nodemon |                  |
+
+## 👨🏽‍💻 Project Development Approach
