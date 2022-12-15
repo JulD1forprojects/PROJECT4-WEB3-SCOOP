@@ -31,7 +31,7 @@ The web app enables end users perform all nesesary <b>CRUD</b> operations and HT
 
 ### BACKEND
 
-![[Imgur](https://i.imgur.com/0KMbnqu.png)
+![Imgur](https://i.imgur.com/0KMbnqu.png)
 
 ## 💻 Technologies & Libraries Used
 
