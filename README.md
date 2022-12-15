@@ -21,13 +21,17 @@ The web app enables end users perform all nesesary <b>CRUD</b> operations and HT
 
 ## 🧩 Web3 Scoop Wireframing
 
+### SITE ARCHITECTURE
+
+![Imgur](https://i.imgur.com/frwJBnn.png)
+
 ### FRONTEND
 
 ![Imgur](https://i.imgur.com/PmQNeEq.png)
 
 ### BACKEND
 
-![Imgur](https://i.imgur.com/r7g9lFg.png)
+![[Imgur](https://i.imgur.com/0KMbnqu.png)
 
 ## 💻 Technologies & Libraries Used
 
