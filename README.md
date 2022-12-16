@@ -2,7 +2,7 @@
 
 ## 🧐 About this Web App
 
-Web3 Scoop is a Public Blog Web App based on MERN stack, that allows WEB3 enthusiasts get the latest news and publish articles on topics related to Web3.
+Web3 Scoop is a Public Blog Web App based on MERN stack that allows WEB3 enthusiasts get the latest news and publish articles on topics related to Web3.
 The web app enables end users perform all nesesary <b>CRUD</b> operations and HTTP requests to achieve the <b>following results:</b>
 
 ##
