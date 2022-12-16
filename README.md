@@ -16,7 +16,7 @@ The web app enables end users perform all nesesary <b>CRUD</b> operations and HT
 - ### Expand and Read full Article
   ![Imgur](https://i.imgur.com/oCGs29T.png)
 - ### Select Articles according to the Category
-  ![Imgur](https://i.imgur.com/OqMUsPG.png)
+  ![Imgur](https://i.imgur.com/ReBcdIy.png)
 - ### Store Articles in and remove them from Favorites
 
   ![Imgur](https://i.imgur.com/0YuUxr4.png)
